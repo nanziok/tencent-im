@@ -300,7 +300,7 @@ class Group {
             'Timestamp' => $timestamp
         ];
         if (null !== $mark) {
-            $p["Mark"] += $mark;
+            $p["Mark"] = $mark;
         }
         $r = $this->httpClient->postJson('group_open_avchatroom_http_svc/get_members', $p);
         return $r;
