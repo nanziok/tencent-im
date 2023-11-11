@@ -2,7 +2,7 @@
 
 namespace Nanziok\TencentIM\Cache;
 
-use Nanziok\TencentIM\Traits\CacheTrait;
+use Nanziok\TencentIM\Api\Traits\CacheTrait;
 
 abstract class AbstractCache
 {

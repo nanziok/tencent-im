@@ -1,6 +1,6 @@
 <?php
 
-namespace QcloudIM\Api;
+namespace Nanziok\TencentIM\Api;
 
 use QcloudIM\Constants;
 use QcloudIM\Model\CreateGroupItem;

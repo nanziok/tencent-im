@@ -2,7 +2,7 @@
 
 namespace Nanziok\TencentIM\Api;
 
-use Nanziok\TencentIM\Traits\HttpClientTrait;
+use Nanziok\TencentIM\Api\Traits\HttpClientTrait;
 
 /**
  * 资料管理

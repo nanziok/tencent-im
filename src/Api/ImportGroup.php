@@ -2,8 +2,8 @@
 
 namespace Nanziok\TencentIM\Api;
 
-use Nanziok\TencentIM\Model\ImportGroupItem;
-use Nanziok\TencentIM\Traits\HttpClientTrait;
+use Nanziok\TencentIM\Api\Model\ImportGroupItem;
+use Nanziok\TencentIM\Api\Traits\HttpClientTrait;
 
 /**
  * 群组管理(导入相关)

@@ -2,9 +2,9 @@
 
 namespace Nanziok\TencentIM\Api;
 
-use Nanziok\TencentIM\Constants;
-use Nanziok\TencentIM\Model\SendGroupMsgItem;
-use Nanziok\TencentIM\Traits\HttpClientTrait;
+use Nanziok\TencentIM\Api\Constants;
+use Nanziok\TencentIM\Api\Model\SendGroupMsgItem;
+use Nanziok\TencentIM\Api\Traits\HttpClientTrait;
 
 /**
  * 群组管理(消息)

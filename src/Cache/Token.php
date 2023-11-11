@@ -2,9 +2,9 @@
 
 namespace Nanziok\TencentIM\Cache;
 
-use Nanziok\TencentIM\Crypt\TLSSigAPIv2;
-use Nanziok\TencentIM\Traits\HttpClientTrait;
-use Nanziok\TencentIM\Traits\SecretTrait;
+use Nanziok\TencentIM\Api\Crypt\TLSSigAPIv2;
+use Nanziok\TencentIM\Api\Traits\HttpClientTrait;
+use Nanziok\TencentIM\Api\Traits\SecretTrait;
 
 class Token extends AbstractCache
 {

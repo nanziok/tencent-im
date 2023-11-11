@@ -2,9 +2,9 @@
 
 namespace Nanziok\TencentIM\Api;
 
-use Nanziok\TencentIM\Constants;
-use Nanziok\TencentIM\Model\AddFriendItem;
-use Nanziok\TencentIM\Traits\HttpClientTrait;
+use Nanziok\TencentIM\Api\Constants;
+use Nanziok\TencentIM\Api\Model\AddFriendItem;
+use Nanziok\TencentIM\Api\Traits\HttpClientTrait;
 
 /**
  * 关系链管理(好友)
