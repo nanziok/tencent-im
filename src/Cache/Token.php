@@ -13,7 +13,7 @@ class Token extends AbstractCache
     protected function getCacheKey(): string
     {
         $unique = md5("{$this->sdkAppId}__{$this->secret}__{$this->identifier}");
-        return md5('Nanziok\TencentIM.token.' . $unique);
+        return md5('TencentIM.token.' . $unique);
     }
 
     protected function getCacheExpire(): int

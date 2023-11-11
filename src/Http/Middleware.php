@@ -22,7 +22,7 @@ class Middleware
     public static function useragent()
     {
         return \GuzzleHttp\Middleware::mapRequest(function (RequestInterface $request) {
-            return $request->withHeader('User-Agent', sprintf('Nanziok\TencentIMSdk (%s %s; %s)) Client/%s PHP/%s',
+            return $request->withHeader('User-Agent', sprintf('TencentIM (%s %s; %s)) Client/%s PHP/%s',
                 \PHP_OS, php_uname('r'), php_uname('m')
                 , Constants::SDK_VERSION, \PHP_VERSION));
         });
