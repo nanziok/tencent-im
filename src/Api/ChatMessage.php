@@ -2,9 +2,9 @@
 
 namespace Nanziok\TencentIM\Api;
 
-use Nanziok\TencentIM\Api\Constants;
-use Nanziok\TencentIM\Api\Model\SendChatMsgItem;
-use Nanziok\TencentIM\Api\Traits\HttpClientTrait;
+use Nanziok\TencentIM\Constants;
+use Nanziok\TencentIM\Model\SendChatMsgItem;
+use Nanziok\TencentIM\Traits\HttpClientTrait;
 
 /**
  * 单聊管理

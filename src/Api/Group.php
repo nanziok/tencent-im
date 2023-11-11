@@ -2,13 +2,13 @@
 
 namespace Nanziok\TencentIM\Api;
 
-use QcloudIM\Constants;
-use QcloudIM\Model\CreateGroupItem;
-use QcloudIM\Model\GroupMemberInfoResponseFilter;
-use QcloudIM\Model\GroupResponseFilter;
-use QcloudIM\Model\ModifyGroupItem;
-use QcloudIM\Model\ModifyGroupMemberInfoItem;
-use QcloudIM\Traits\HttpClientTrait;
+use Nanziok\TencentIM\Constants;
+use Nanziok\TencentIM\Model\CreateGroupItem;
+use Nanziok\TencentIM\Model\GroupMemberInfoResponseFilter;
+use Nanziok\TencentIM\Model\GroupResponseFilter;
+use Nanziok\TencentIM\Model\ModifyGroupItem;
+use Nanziok\TencentIM\Model\ModifyGroupMemberInfoItem;
+use Nanziok\TencentIM\Traits\HttpClientTrait;
 
 /**
  * 群组管理
