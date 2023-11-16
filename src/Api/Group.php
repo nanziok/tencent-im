@@ -352,4 +352,17 @@ class Group {
         return $r;
     }
 
+    /**
+     * 获取在线人数
+     * @param $groupId
+     * @return array
+     */
+    public function getOnlineMemberNum($groupId) {
+        $p = [
+            'GroupId'   => $groupId,
+        ];
+        $r = $this->httpClient->postJson('group_open_http_svc/get_online_member_num',$p);
+        return $r;
+    }
+
 }
