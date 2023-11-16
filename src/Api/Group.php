@@ -310,10 +310,10 @@ class Group {
      * 直播群封禁成员列表  需要旗舰版资源包配合使用
      * @return array
      */
-    public function getAvBanMemberList($groupId,$offset=0,$limit=200) {
+    public function getAvBanMemberList($groupId, $offset = 0, $limit = 200) {
         $p = [
-            'GroupId'   => $groupId,
-            'Offset' => $offset
+            'GroupId' => $groupId,
+            'Offset'  => $offset
         ];
         if (null !== $limit) {
             $p["Limit"] += $limit;
@@ -326,16 +326,16 @@ class Group {
      * 封禁语音房成员 需要旗舰版资源包配合使用
      * @return array
      */
-    public function setAvBanMember($groupId,array $member_list, int $duration, $description=null) {
+    public function setAvBanMember($groupId, array $member_list, int $duration, $description = null) {
         $p = [
-            'GroupId'   => $groupId,
+            'GroupId'         => $groupId,
             'Members_Account' => $member_list,
-            "Duration" => $duration,
+            "Duration"        => $duration,
         ];
-        if (null !== $description){
+        if (null !== $description) {
             $p["Description"] = $description;
         }
-        $r = $this->httpClient->postJson('group_open_http_svc/ban_group_member',$p);
+        $r = $this->httpClient->postJson('group_open_http_svc/ban_group_member', $p);
         return $r;
     }
 
@@ -343,12 +343,12 @@ class Group {
      * 解封语音房成员 需要旗舰版资源包配合使用
      * @return array
      */
-    public function setAvUnbanMember($groupId,array $member_list) {
+    public function setAvUnbanMember($groupId, array $member_list) {
         $p = [
-            'GroupId'   => $groupId,
+            'GroupId'         => $groupId,
             'Members_Account' => $member_list,
         ];
-        $r = $this->httpClient->postJson('group_open_http_svc/ban_group_member',$p);
+        $r = $this->httpClient->postJson('group_open_http_svc/ban_group_member', $p);
         return $r;
     }
 
@@ -357,11 +357,11 @@ class Group {
      * @param $groupId
      * @return array
      */
-    public function getOnlineMemberNum($groupId) {
+    public function getOnlineMemberNum(string $groupId) {
         $p = [
-            'GroupId'   => $groupId,
+            'GroupId' => $groupId,
         ];
-        $r = $this->httpClient->postJson('group_open_http_svc/get_online_member_num',$p);
+        $r = $this->httpClient->postJson('group_open_http_svc/get_online_member_num', $p);
         return $r;
     }
 
