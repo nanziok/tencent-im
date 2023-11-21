@@ -69,7 +69,7 @@ class Account
      */
     public function queryState(string $accountId, bool $isNeedDetail = false): array
     {
-        $r = $this->httpClient->postJson('openim/querystate', [
+        $r = $this->httpClient->postJson('openim/query_online_status', [
             'IsNeedDetail' => $isNeedDetail ? 1 : 0,
             'To_Account' => [$accountId],
         ]);
