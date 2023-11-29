@@ -23,7 +23,7 @@ class ChatMessage
      */
     public function sendMsg(string $toAccountId, SendChatMsgItem $item): string
     {
-        $p = ['To_Account' => $toAccountId] + (array)$item;
+        $p = ['To_Account' => $toAccountId] + array_filter((array)$item, function ($v){return !is_null($v);});
         $r = $this->httpClient->postJson('openim/sendmsg', $p);
         return $r['MsgKey'];
     }

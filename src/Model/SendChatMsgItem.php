@@ -7,21 +7,20 @@ class SendChatMsgItem
     /** @var int 消息随机数，由随机函数产生，用于后台定位问题（必填） */
     public $MsgRandom;
     /** @var string TIM 消息对象类型(必填) */
-    public $MsgType;
-    /** @var array 消息体(必填) */
     public $MsgBody;
-    /** @var array 消息体(必填) */
-    public $MsgContent;
     /** @var string  消息来源帐号 */
     public $From_Account;
-    /** @var int 消息时间戳，UNIX 时间戳（单位：秒） */
-    public $MsgTimeStamp;
 
     /** @var int 消息离线保存时长（单位：秒），最长为7天（604800秒）
      * 若设置该字段为0，则消息只发在线用户，不保存离线
      * 若设置该字段超过7天（604800秒），仍只保存7天
      * 若不设置该字段，则默认保存7天 */
     public $MsgLifeTime;
+
+    //消息随机数（32位无符号整数），后台用于同一秒内的消息去重。请确保该字段填的是随机
+    public $MsgSeq;
+    //消息回调禁止开关，只对本条消息有效，ForbidBeforeSendMsgCallback 表示禁止发消息前回调，ForbidAfterSendMsgCallback 表示禁止发消息后回调
+    public $ForbidCallbackControl;
 
     /** @var int
      * 1：把消息同步到 From_Account 在线终端和漫游上；
@@ -41,6 +40,7 @@ class SendChatMsgItem
         $this->MsgRandom = rand(100000, 999999);
     }
 
+
     /**
      * @return int
      */
@@ -57,21 +57,6 @@ class SendChatMsgItem
         $this->MsgRandom = $MsgRandom;
     }
 
-    /**
-     * @return string
-     */
-    public function getMsgType(): string
-    {
-        return $this->MsgType;
-    }
-
-    /**
-     * @param string $MsgType
-     */
-    public function setMsgType(string $MsgType): void
-    {
-        $this->MsgType = $MsgType;
-    }
 
     /**
      * @return array
@@ -89,20 +74,12 @@ class SendChatMsgItem
         $this->MsgBody = $MsgBody;
     }
 
-    /**
-     * @return array
-     */
-    public function getMsgContent(): array
-    {
-        return $this->MsgContent;
-    }
 
-    /**
-     * @param array $MsgContent
-     */
-    public function setMsgContent(array $MsgContent): void
-    {
-        $this->MsgContent = $MsgContent;
+    public function addMessage($type,$data) {
+        $this->MsgBody[] = [
+            "MsgType" => $type,
+            "MsgContent" => $data
+        ];
     }
 
     /**
@@ -121,21 +98,6 @@ class SendChatMsgItem
         $this->From_Account = $From_Account;
     }
 
-    /**
-     * @return int
-     */
-    public function getMsgTimeStamp(): int
-    {
-        return $this->MsgTimeStamp;
-    }
-
-    /**
-     * @param int $MsgTimeStamp
-     */
-    public function setMsgTimeStamp(int $MsgTimeStamp): void
-    {
-        $this->MsgTimeStamp = $MsgTimeStamp;
-    }
 
     /**
      * @return int
