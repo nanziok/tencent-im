@@ -32,6 +32,9 @@ class SendChatMsgItem
     /** @var array 离线推送信息配置 */
     public $OfflinePushInfo;
 
+    /** @var array  */
+    public $SendMsgControl;
+
     /**
      * SendChatMsgItem constructor.
      */
