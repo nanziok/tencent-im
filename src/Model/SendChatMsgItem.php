@@ -32,7 +32,7 @@ class SendChatMsgItem
     /** @var array 离线推送信息配置 */
     public $OfflinePushInfo;
 
-    /** @var array  */
+    /** @var string json字符串 离线推送信息配置消息发送控制选项，["NoUnread","NoLastMsg","WithMuteNotifications","NoMsgCheck"] */
     public $SendMsgControl;
 
     /**
@@ -148,6 +148,14 @@ class SendChatMsgItem
     public function setOfflinePushInfo(array $OfflinePushInfo): void
     {
         $this->OfflinePushInfo = $OfflinePushInfo;
+    }
+
+    public function setSendMsgControl($val) {
+        $this->SendMsgControl = $val;
+    }
+
+    public function getSendMsgControl() {
+        return $this->SendMsgControl;
     }
 
 }
