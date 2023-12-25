@@ -31,7 +31,7 @@ class ChatMessage
     /**
      * 批量发单聊消息
      *
-     * @param array           $toAccountIds
+     * @param array           $toAccountIds 单次最多支持500个人
      * @param SendChatMsgItem $item
      *
      * @return array
@@ -47,7 +47,7 @@ class ChatMessage
                 unset($p[$k]);
             }
         }
-        $r = $this->httpClient->postJson('openim/sendmsg', $p);
+        $r = $this->httpClient->postJson('openim/batchsendmsg', $p);
         return $r;
     }
 
