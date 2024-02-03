@@ -2,6 +2,7 @@
 
 namespace Nanziok\TencentIM\Api;
 
+use JetBrains\PhpStorm\ArrayShape;
 use Nanziok\TencentIM\Constants;
 use Nanziok\TencentIM\Model\CreateGroupItem;
 use Nanziok\TencentIM\Model\GroupMemberInfoResponseFilter;
@@ -362,6 +363,76 @@ class Group {
             'GroupId' => $groupId,
         ];
         $r = $this->httpClient->postJson('group_open_http_svc/get_online_member_num', $p);
+        return $r;
+    }
+
+    /**
+     * 获取群自定义资料
+     * @param string $groupId
+     * @return array
+     */
+    public function getGroupAttr(string $groupId) {
+        $p = [
+            'GroupId' => $groupId,
+        ];
+        $r = $this->httpClient->postJson('group_open_attr_http_svc/get_group_attr', $p);
+        return $r;
+    }
+
+    /**
+     * 修改
+     * @param string $groupId
+     * @param array $arr #[ArrayShape([key=>value])]
+     * @return array
+     */
+    public function modifyGroupAttr(string $groupId, array $arr) {
+        $attr = [];
+        foreach ($arr as $k=>$v){
+            $attr[] = [
+                "key" => $k,
+                "value" => $v
+            ];
+        }
+        $p = [
+            'GroupId' => $groupId,
+            "GroupAttr" => $attr
+        ];
+        $r = $this->httpClient->postJson('group_open_attr_http_svc/modify_group_attr', $p);
+        return $r;
+    }
+
+    /**
+     * 清空群自定义资料
+     * @param string $groupId
+     * @return array
+     */
+    public function clearGroupAttr(string $groupId) {
+        $p = [
+            'GroupId' => $groupId,
+        ];
+        $r = $this->httpClient->postJson('group_open_attr_http_svc/clear_group_attr', $p);
+        return $r;
+    }
+
+    /**
+     * 重置群自定义字段
+     * @param string $groupId
+     * @param array $arr #[ArrayShape([key=>value])]
+     * @return array
+     */
+    public function resetGroupAttr(string $groupId, array $arr) {
+        $attr = [];
+        foreach ($arr as $k=>$v){
+            $attr[] = [
+                "key" => $k,
+                "value" => $v
+            ];
+        }
+        $p = [
+            'GroupId' => $groupId,
+            "GroupAttr" => $attr
+        ];
+        $r = $this->httpClient->postJson('group_open_attr_http_svc/set_group_attr', $p);
         return $r;
     }
 
