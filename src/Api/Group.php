@@ -397,7 +397,7 @@ class Group {
             'GroupId' => $groupId,
             "GroupAttr" => $attr
         ];
-        $r = $this->httpClient->postJson('group_open_attr_http_svc/modify_group_attr', $p);
+        $r = $this->httpClient->postJson('group_open_http_svc/modify_group_attr', $p);
         return $r;
     }
 
@@ -410,7 +410,7 @@ class Group {
         $p = [
             'GroupId' => $groupId,
         ];
-        $r = $this->httpClient->postJson('group_open_attr_http_svc/clear_group_attr', $p);
+        $r = $this->httpClient->postJson('group_open_http_svc/clear_group_attr', $p);
         return $r;
     }
 
@@ -432,7 +432,7 @@ class Group {
             'GroupId' => $groupId,
             "GroupAttr" => $attr
         ];
-        $r = $this->httpClient->postJson('group_open_attr_http_svc/set_group_attr', $p);
+        $r = $this->httpClient->postJson('group_open_http_svc/set_group_attr', $p);
         return $r;
     }
 
