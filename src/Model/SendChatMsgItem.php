@@ -6,9 +6,11 @@ class SendChatMsgItem
 {
     /** @var int 消息随机数，由随机函数产生，用于后台定位问题（必填） */
     public $MsgRandom;
+    
     /** @var string TIM 消息对象类型(必填) */
     public $MsgBody;
-    /** @var string  消息来源帐号 */
+
+    /** @var string  消息来源帐号, 非必填 */
     public $From_Account;
 
     /** @var int 消息离线保存时长（单位：秒），最长为7天（604800秒）
@@ -19,6 +21,7 @@ class SendChatMsgItem
 
     //消息随机数（32位无符号整数），后台用于同一秒内的消息去重。请确保该字段填的是随机
     public $MsgSeq;
+
     //消息回调禁止开关，只对本条消息有效，ForbidBeforeSendMsgCallback 表示禁止发消息前回调，ForbidAfterSendMsgCallback 表示禁止发消息后回调
     public $ForbidCallbackControl;
 
@@ -32,8 +35,17 @@ class SendChatMsgItem
     /** @var array 离线推送信息配置 */
     public $OfflinePushInfo;
 
-    /** @var string json字符串 离线推送信息配置消息发送控制选项，["NoUnread","NoLastMsg","WithMuteNotifications","NoMsgCheck"] */
+    /** @var integer 默认为 0，表示消息存历史聊天记录 1表示消息不存历史聊天记录，即发送消息时，若接收方在线，则能收到此消息，若接收方不在线，则收不到该消息。适用于实现一些实时状态类的功能。 */
+    public $OnlineOnlyFlag;
+
+    /** @var string 消息自定义数据（云端保存，会发送到对端，程序卸载重装后还能拉取到） */
+    public $CloudCustomData;
+
+    /** @var array{string} 离线推送信息配置消息发送控制选项，["NoUnread","NoLastMsg","WithMuteNotifications","NoMsgCheck"] */
     public $SendMsgControl;
+
+    /** @var integer 该条消息是否需要已读回执，0为不需要，1为需要，默认为0 */
+    public $IsNeedReadReceipt = 0;
 
     /**
      * SendChatMsgItem constructor.
